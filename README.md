@@ -21,7 +21,7 @@ Python + Flask + gunicornで動作しています。
 ドメイン名/api
 にBase64で画像をPOSTすると推論の結果が返るようにします。
 
-適当な場所にapp.pyとcnn_tamago.h5(学習済みモデル)を配置します。
+適当な場所にapp.pyとgunicorn_config.py、cnn_tamago.h5(学習済みモデル)を配置します。
 
 gunicornをインストール
 
