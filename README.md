@@ -21,23 +21,29 @@ Python + Flask + gunicornで動作しています。
 ドメイン名/api
 にBase64で画像をPOSTすると推論の結果が返るようにします。
 
-適当な場所にapp.pyとcnn_tamago.h5(学習済みモデル)を配置します。
+適当な場所にapp.pyとgunicorn_config.py、cnn_tamago.h5(学習済みモデル)を配置します。
 
 gunicornをインストール
 
+```
 $pip3 install gunicorn
-
+```
 
 Apacheの設定
-<VirtualHost *:80>  
-        ServerName your.domain.name.com  
-        ProxyPass /api http://127.0.0.1:8000/  
-        ProxyPassReverse /api http://127.0.0.1:8000/  
+
+```
+<VirtualHost *:80>
+        ServerName your.domain.name.com
+        ProxyPass /api http://127.0.0.1:8000/
+        ProxyPassReverse /api http://127.0.0.1:8000/
 </VirtualHost>  
+```
 
-gunicornを起動
+gunicornを起動  
 
+```
 $gunicorn app:app --config gunicorn_config.py
+```
 
 この状態でドキュメントルートにhtmlフォルダの内容を放り込めば動作するはずです。
 
