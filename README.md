@@ -35,7 +35,7 @@ Apacheの設定
         ProxyPassReverse /api http://127.0.0.1:8000/  
 </VirtualHost>  
 
-gunicornを起動
+gunicornを起動  
 
 $gunicorn app:app --config gunicorn_config.py
 
