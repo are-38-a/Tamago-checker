@@ -29,10 +29,15 @@ $pip3 install gunicorn
 
 
 Apacheの設定
-<VirtualHost *:80>  
-        ServerName your.domain.name.com  
-        ProxyPass /api http://127.0.0.1:8000/  
-        ProxyPassReverse /api http://127.0.0.1:8000/  
+
+<VirtualHost *:80>
+
+        ServerName your.domain.name.com
+
+        ProxyPass /api http://127.0.0.1:8000/
+
+        ProxyPassReverse /api http://127.0.0.1:8000/
+
 </VirtualHost>  
 
 gunicornを起動  
